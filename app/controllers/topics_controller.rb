@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :require_user_logged_in, only: :create 
+  before_action :require_user_logged_in, only: [:create, :destroy] 
   before_action :correct_user, only: [:destroy]
   
   def index
@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
 private
 
   def topic_params
-    params.require(:topic).permit(:content)
+    params.require(:topic).permit(:content, :title)
   end
   
   def correct_user

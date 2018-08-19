@@ -1,9 +1,13 @@
 <header>
-        <a class="title" href="/">アプリ名
+        <a class="title" href="/">SCB
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <div class=title2>
+         <% if logged_in? %>
+          <button class="btn btn-default btn-lg" type="submit"><%= link_to 'ログアウト', logout_path, method: :delete %></button>
+         <% else %>
           <button class="btn btn-default btn-lg" type="submit"><%= link_to '新規登録', signup_path %></button>
           <button class="btn btn-default btn-lg" type="submit"><%= link_to 'ログイン', login_path %></button>
+         <% end %>
         </div>
       </div>
 </header>
